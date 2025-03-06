@@ -8,10 +8,12 @@ CREATE TABLE `Books` (
    `Price` DECIMAL(10,2) NOT NULL
 );
 
+
 CREATE TABLE `Authors` (
    `AuthorID` INT PRIMARY KEY,
    `Name` VARCHAR(255) NOT NULL
 );
+
 
 CREATE TABLE `BookAuthors` (
    `ISBN` VARCHAR(20),
@@ -21,11 +23,13 @@ CREATE TABLE `BookAuthors` (
    FOREIGN KEY (`AuthorID`) REFERENCES `Authors`(`AuthorID`)
 );
 
+
 CREATE TABLE `Customers` (
    `CustomerID` INT PRIMARY KEY,
    `Name` VARCHAR(255) NOT NULL,
    `Email` VARCHAR(255) NOT NULL
 );
+
 
 CREATE TABLE `Orders` (
    `OrderID` INT PRIMARY KEY,
@@ -33,6 +37,7 @@ CREATE TABLE `Orders` (
    `OrderDate` DATE NOT NULL,
    FOREIGN KEY (`CustomerID`) REFERENCES `Customers`(`CustomerID`)
 );
+
 
 CREATE TABLE `OrderDetails` (
    `OrderID` INT,
@@ -42,3 +47,4 @@ CREATE TABLE `OrderDetails` (
    FOREIGN KEY (`OrderID`) REFERENCES `Orders`(`OrderID`),
    FOREIGN KEY (`ISBN`) REFERENCES `Books`(`ISBN`)
 );
+
